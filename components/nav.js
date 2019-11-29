@@ -1,56 +1,34 @@
-import React from 'react'
-import Link from 'next/link'
-
-const links = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' },
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+import React from "react";
+import styled from "styled-components";
 
 const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
-    </ul>
+  <NavContainer>
+    <NavItemsContainer>
+      <NavItems>Cogenius Shop</NavItems>
+      <NavItems>
+        <InputContainer>
+          <input type="text" />
+          <input type="submit" value="Faire une recherche" />
+        </InputContainer>
+      </NavItems>
+    </NavItemsContainer>
+  </NavContainer>
+);
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
-)
+export default Nav;
 
-export default Nav
+const NavContainer = styled.nav`
+  max-width: 1100px;
+  margin: auto;
+  color: white;
+  padding-top: 15px;
+`;
+const NavItemsContainer = styled.ul`
+  list-style-type: none;
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: space-evenly;
+`;
+const NavItems = styled.li``;
+const InputContainer = styled.form``;
